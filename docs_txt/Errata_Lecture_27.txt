@@ -1,0 +1,98 @@
+Streamfunction 
+Vorticity
+Formulation 
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+ρ∞
+
+𝜕
+
+𝜕t
+
+(ω) + ρ∞𝑢
+
+𝜕
+
+𝜕x
+
+(ω) + ρ∞𝑣
+
+𝜕
+
+𝜕y
+
+(ω) = μ
+
+𝜕2
+𝜕x2 ω + μ
+
+𝜕2
+𝜕y2 (ω)
+
+𝑢 = 
+
+𝜕ψ
+𝜕y
+
+𝑣 = -
+
+𝜕ψ
+𝜕x
+
+ω = (
+
+𝜕𝑣
+
+𝜕x
+
+−
+
+𝜕𝑢
+
+𝜕y
+
+)
+
+ρ∞
+
+𝜕ω
+𝜕t
+
++ ρ∞
+
+𝜕ψ
+𝜕y
+
+𝜕ω
+𝜕x
+
+- ρ∞
+
+𝜕ψ
+𝜕x
+
+𝜕ω
+𝜕y
+
+= μ
+
+𝜕2ω
+𝜕x2 + μ
+
+𝜕2ω
+𝜕y2
+
+𝜕2ψ
+𝜕x2 +
+
+𝜕2ψ
+𝜕y2 = −ω
+
+Error in Lecture (at 7:10 mark): this sign was incorrectly written as +
+(Hat tip to Thomas Kopf for identifying the error)
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+

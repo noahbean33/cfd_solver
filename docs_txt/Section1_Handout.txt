@@ -1,0 +1,370 @@
+Course 
+Map
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Pre-requisites
+
+Newton’s Laws of 
+Motion
+
+Basic Calculus
+
+Vector Algebra
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The Rosetta Stone 
+of CFD
+
+Taylor Series 
+and Finite 
+Differences
+
+How would you like 
+your equations 
+cooked?
+
+Difference 
+Equations
+
+Linear 
+Stability
+
+Application: Sod 
+Shock Tube
+Application:  
+Isentropic Vortex
+
+Spoiler: it ends 
+with Euler
+
+Let’s get 
+physical
+
+Hierarchy of 
+Fluid Dynamics 
+Models
+
+YOU ARE 
+HERE
+
+Course Map
+
+History
+
+Base camp
+
+Streamfunction 
+Vorticity 
+Formulation
+
+Application: Lid-
+driven Cavity
+
+A convenient 
+disguise
+
+Application: 
+Laplace 
+Equation
+
+This kid’s got 
+potential
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+C
+
+Convergence
+
+Artificial Dissipation
+
+Uniqueness
+
+FD
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The Rosetta Stone 
+of CFD
+
+Taylor Series 
+and Finite 
+Differences
+
+C
+
+YOU ARE 
+HERE
+
+Course Map
+
+History
+
+Base camp
+
+Streamfunction 
+Vorticity 
+Formulation
+
+Application: Lid-
+driven Cavity
+
+A convenient 
+disguise
+
+CFD
+
+Difference 
+Equations
+
+Linear 
+Stability
+
+C
+
+Application: Sod 
+Shock Tube
+Application:  
+Isentropic Vortex
+
+Spoiler: it ends 
+with Euler
+
+CFD
+
+How would you like 
+your equations 
+cooked?
+
+Let’s get 
+physical
+
+Hierarchy of 
+Fluid Dynamics 
+Models
+
+FD
+
+Application: 
+Laplace 
+Equation
+
+CFD
+
+This kid’s got 
+potential
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+What this Course DOES NOT Have
+
+- Exhaustive Intro to Fluid Dynamics/Thermodynamics
+- Grid generation
+- RANS / Turbulence modeling
+- LES / DES
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Mission Statement
+
+Equip the student with the means to:
+(1) Navigate the “fidelity-ladder” of the Navier-Stokes 
+equations to find a suitable model
+(2) Tailor a finite-difference scheme with a desired 
+level of accuracy and stability (and be able to predict 
+how it will behave before writing a single line of code) 
+(3) Write/extend/run/validate a CFD solver in two 
+spatial dimensions or more
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Alternatives
+
+‘Computational Fluid Dynamics Fundamentals 
+Course’ – Dr. Aidan Wimshurst (Udemy)
+MIT OpenCourseWare
+Youtube
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Contact Info
+
+Direct questions and feedback to sthomas2@umd.edu
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+A (very) Brief 
+History of 
+CFD
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The “FD”
+
+- Fluid dynamical equations 
+assembled over two centuries
+- Euler applied Newton’s 
+conservation of momentum 
+law to “perfect” fluids
+- Navier, Stokes extend Euler’s 
+equation to “viscous” fluids
+
+Newton
+
+Navier
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Euler
+
+Stokes
+
+The “C”
+
+- Richardson used ‘finite differences’ to 
+compute stresses in a masonry dam (1910)
+- Realized that this technique could work in 
+meteorology too
+- Completed calculation of a single day’s 
+weather while transporting injured soldiers 
+during the Battle of Champagne 
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+L. F. Richardson
+
+Human 
+Race
+
+Stokes completes assembly of 
+fluid dynamical equations
+
+Seventy years go by
+
+Richardson attempts the first weather 
+forecast using a finite-difference 
+approximation of the equations
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+- Richardson divided the global 
+atmosphere into 12000 cells
+- Each cell spanned 200 km in north-
+south direction, 3o in east-west direction 
+and 1/5th the vertical span of the 
+atmosphere
+- He initialized his atmosphere to 
+conditions observed on May 10th 1910
+- He advanced the state of his 
+atmosphere 6 hours at a time, by solving 
+his finite-difference approximation of 
+the fluid dynamical equations
+- His computational result was… 
+UNDERWHELMING
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Richardson’s grid
+
+“The rate of rise of surface pressure, is found […] as 145 
+millibars in 6 hours, whereas observations show that the 
+barometer was nearly steady. This glaring error is examined 
+in detail below […] and is traced to errors in the 
+representation of the initial wind.”
+
+- L.F.Richardson (Weather Prediction by Numerical Process) 
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The Juggernaut Rolls On
+- By the 1940s, Richardson’s slide 
+rule and paper was replaced by 
+vacuum tubes and punch cards
+- First computer-based weather 
+prediction performed in 1950 
+(Charney, Von Neumann)
+- As compute power grows over the 
+next fifty years, increasingly 
+complicated solution methodologies 
+are introduced and tested on 
+increasingly complex applications
+
+Control Panel of ENIAC
+
+Grid used by Charney et al
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Barotropic Vorticity Solver
+
+Euler 
+Solvers
+
+LES
+
+Hybrid 
+RANS-LES
+
+1950
+
+1960
+
+1970
+
+1980
+
+1990
+
+Linear 
+Potential 
+Solvers
+
+Nonlinear 
+Potential 
+Solvers
+
+2000
+RANS + Turbulence 
+Models
+
+2010
+
+2020
+
+“Million-core Barrier”
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+10-5m
+
+10-3m
+
+10-1m
+
+101m
+
+103m
+
+105m
+
+107m
+
+1010m
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+

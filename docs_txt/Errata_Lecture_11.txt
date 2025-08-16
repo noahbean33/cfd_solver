@@ -1,0 +1,39 @@
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
+ + 𝑐
+
+𝜕2𝑢
+𝜕𝑥2
+
+Δ𝑥
+2!
+
+(1-CFL)
+
+Assume solution is summation of terms like (Ake jkx )𝑒α𝑡
+
+α Ake jkx  𝑒α𝑡 = −𝑐𝑗𝑘(Ake jkx )𝑒α𝑡+ 𝑐 𝑗𝑘 2(Ake jkx )𝑒α𝑡 Δ𝑥
+
+(1 − 𝐶𝐹𝐿)
+
+Error in Lecture (at 18:50 
+2!
+mark): Missing “t” (Hat tip to 
+Hussein Mariner for this catch)
+
+α = −𝑐𝑗𝑘  − 𝑐𝑘2 Δ𝑥
+2!
+
+(1 − 𝐶𝐹𝐿)
+
+u x, t = Ake jk(x-ct)e−(1−CFL)(𝑐𝑘2)Δ𝑥𝒕/2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+

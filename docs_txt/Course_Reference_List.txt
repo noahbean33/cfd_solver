@@ -1,0 +1,169 @@
+A (very) Brief 
+History of 
+CFD
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+6.
+
+Finkel, C., ‘Osman’s Dream, The History of the Ottoman Empire,’ Basic 
+Books, 2005
+https://militarymaps.rct.uk/other-17th-century-conflicts/battle-of-the-
+dardanelles-1656-vitoria-ottenvta-dala
+Charney, J.G, Fjortoft, R., Von Neumann, J., ‘Numerical Integration of the 
+Barotropic Vorticity Equation,’ Tellus, Volume 2, Number 4, 1950
+Johnson, F.T., Tinoco, E.N., Yu, N.J., ‘Thirty Years of Development and 
+Application of CFD at Boeing Commercial Airplanes, Seattle,’ 16th AIAA 
+Computational Fluid Dynamics Conference, Orlando, June 2003 
+Cole, J.D., ‘Calculations of Transonic Flow,’ 7th Congress of the International 
+Council of the Aeronautical Sciences, Rome, September 1970
+Spalart, R.S., Rumsey, C.L., ‘Effective Inflow Conditions for Turbulence 
+Models in Aerodynamic Calculations,’ Journal of Aircraft, 2007
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+
+7.
+
+8.
+
+9.
+
+10.
+11.
+12.
+
+Deardoff, J.W., ‘A numerical study of three-dimensional turbulent channel 
+flow at large Reynolds numbers,’ Journal of Fluid Mechanics, Vol 41, Part 2, 
+1970
+Jameson, A, Schmidt, W., Turkel, E., ‘Numerical Solution of the Euler 
+Equations by Finite Volume Methods Using Runge-Kutta Time-Stepping 
+Schemes,’ 14th Fluid and Plasma Dynamics Conference, Palo Alto, 1981
+Spalart, P.R., Jou, W.H, Strelets, M., Allmaras, S.R, ‘Comments on the 
+Feasibility of LES for Wings, and on a Hybrid-RANS-LES Approach,’ 
+Proceedings of the first AFOSR International Conference on DNS/LES, 
+August 1997
+https://www.nasa.gov/multimedia/imagegallery/image_feature_431.html
+https://www.nasa.gov/content/fine-tuning-rotorcraft-simulations
+‘A Look back: University of Oklahoma Students Tested their Skills at Tornado 
+Forecasting,’ National Oceanic and Atmospheric Administration, July 2020
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+Sun, D., Jinpeng, L.V., Waller, S. T., ‘In-depth analysis of traffic congestion using 
+computational fluid dynamics (CFD) modeling method,’ Journal of Modern 
+Transportation, March 2011
+
+‘Atmosphere around Climate Modeling,’ Science and Technology Review, 
+Lawrence Livermore National Laboratory, 2017 
+
+13.
+
+14.
+
+15. Menzer, A., Ren, Y., Guo, J., Tobalske, B.W., Dong, H., ‘Wing Kinematics and 
+Unsteady Aerodynamics of a Hummingbird Pure Yawing Maneuver,’ 
+Biomimetics, 2022
+
+16. Watson, N.A., Kelly, M.F., Owen, I., Hodge, S.J., White, M.D., ‘Computational and 
+
+experimental modelling study of the unsteady airflow over the aircraft carrier 
+HMS Queen Elizabeth,’ Ocean Engineering, December 2018
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+
+17. Beaumont, F., Belair, G.L., Polidori, G., ‘Computational Fluid Dynamics (CFD) as a 
+
+Tool for Investigating Self-Organized Ascending Bubble-Driven Flow Patterns in 
+Champagne Glasses,’ Foods, July 2020
+
+18. Arabghahestani, M., Poozesh, S., Akafuah, N.K., ‘Advances in Computational Fluid 
+Mechanics in Cellular Flow Manipulation: A Review,’ Applied Sciences, September 
+2019
+
+19. Müller, B., ‘Hydrodynamics of core-collapse supernovae and their progenitors,’ 
+
+Living Reviews in Computational Astrophysics, June 2020
+
+20.
+
+21.
+
+Zhao, Y. C., Vatankhah, P., Goh, T., Michelis, R., Kyanian, K., Zhang, Y., Li, Z., Ju, L.A., 
+‘Hemodynamic analysis for stenosis microfuidic model of thrombosis with refned
+computational fuid dynamics simulation,’ Nature, 2021
+
+Lee, J., ‘The Role of the Aerodynamic Modifications of the Shapes of Tall Buildings,’ 
+Master’s Thesis, Massachusetts Institute of Technology, 2011
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Numerical Error
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+1. ‘Wave Machine Demonstration,’ National STEM Centre, 
+Youtube
+https://www.youtube.com/watch?v=VE520z_ugcU&ab_chann
+el=NationalSTEMCentre
+2. ‘Ripples in Water,’ Ravindra Godbole, Youtube
+https://www.youtube.com/watch?v=vQ-ZaAQ5PHg
+3. Maidment, D., Traboton, D., ‘Mapping Hurricane Katrina,’ 
+https://www.caee.utexas.edu/prof/maidment/giswr2005/ex1
+/katrinamap.htm
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Potential Flow
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+• Sen. S., Mittal, S., ‘Flow past a square cylinder at low 
+Reynolds numbers,’ International Journal of Fluids, 2011, 
+Volume 67, Issue 9
+• Khan, Salman. 2019. ‘Flow Visualization over an Airfoil’ 
+https://www.youtube.com/watch?v=jTRuvsm1p-
+s&ab_channel=SalmanKhan
+• Khan, Salman. 2019. ‘Flow over Airfoil 30 Degree Angle of 
+Attack’ 
+https://www.youtube.com/watch?v=qbMg1G3oTVY&ab_chan
+nel=SalmanKhan
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Compressible 
+Inviscid Flow
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+References
+
+• Joseph Kosinski, ‘Top Gun: Maverick,’ Paramount 
+Pictures, 2022 
+https://www.youtube.com/watch?v=dKqBQ88PB5
+Y&t=18s&ab_channel=TrendClips
+• Unless otherwise specified, all images in this 
+course were borrowed from Wikimedia Commons: 
+https://commons.wikimedia.org/wiki/Main_Page
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+

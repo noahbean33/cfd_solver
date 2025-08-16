@@ -1,0 +1,39 @@
+𝑛
+𝑛+1− 𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛+1− 2𝑇𝑖
+𝑇𝑖+1
+
+𝑛+1
+𝑛+1+ 𝑇𝑖−1
+Δ𝑥2
+
+𝑛
+𝑛+1− 𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+−𝑇𝑖+2
+
+𝑛+1 +16𝑇𝑖+1
+
+𝑛+1+16𝑇𝑖−1
+
+𝑛+1
+𝑛+1 −𝑇𝑖−2
+
+𝑛+1 − 30𝑇𝑖
+𝟏𝟐Δ𝑥2
+
+Error in Lecture (at 23:28 mark): The denominator of the RHS was 
+missing a coefficient of 12. Hat-tip to João Pedro Rocha for catching this.
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+

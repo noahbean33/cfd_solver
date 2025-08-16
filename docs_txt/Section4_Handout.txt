@@ -1,0 +1,2943 @@
+Conservation 
+Laws of Fluid 
+Dynamics
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Two Vital Concepts
+• Divergence
+• Substantial Derivative
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Error in lecture: The velocity in this plot 
+is non-dimensionalized by the speed of 
+sound at the inlet (and not the throat)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+What about higher dimensions?
+
+Expansion
+
+Shear
+
+Rigid Rotation
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Velocity vector
+V = (u,v,w)
+
+Volt = dx*dy*dz
+
+Volt+dt = (dx+uxdxdt)*(dy+vydydt)*(dz+wzdzdt)
+
+Volt+dt−Volt
+Volt∗dt
+
+= ux + vy + wz
+
+∇.V
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+∇.V is simply the fractional 
+rate of change of volume 
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The concert 
+thought-experiment
+
+1
+
+Joseph-Louis 
+Lagrange
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Taylor Series
+
+𝑓 = 𝑓(𝑥)
+
+𝑓 𝑏 = 𝑓 𝑎 + 𝑏 − 𝑎 𝑓′ 𝑎 +
+
+𝑏−𝑎 2
+2!
+
+𝑓′′ 𝑎 +
+
+𝑏−𝑎 3
+3!
+
+𝑓′′′ 𝑎 + ⋯
+
+Multi-variate Taylor 
+Series Expansion
+
+𝐿 = 𝐿(𝑥, 𝑦, 𝑡)
+
+𝐿2 = 𝐿1 +
+
+𝜕𝐿
+𝜕𝑡
+
+𝑡2 − 𝑡1 +
+
+𝜕𝐿
+𝜕𝑥
+
+𝑥2 − 𝑥1 +
+
+𝜕𝐿
+𝜕𝑦
+
+𝑦2 − 𝑦1 + ⋯
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The Substantial Derivative
+
+𝐷𝐿
+𝐷𝑡
+
+=
+
+𝜕𝐿
+𝜕𝑡
+
++ 𝑉 ⋅ ∇𝐿
+
+The concept of the ‘substantial’ (or ‘material’) derivative 
+arises in fluid dynamics when a quantity is being measured 
+inside a control volume that moves with the fluid
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Effect of singer 
+performing louder
+
+𝐷𝐿
+𝐷𝑡
+
+=
+
+𝜕𝐿
+𝜕𝑡
+
++ 𝑉 ⋅ ∇𝐿
+
+Joseph-Louis 
+Lagrange
+
+Effect of getting 
+closer to the singer
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation Laws
+
+• For any fluid element, three laws are inviolable:
+
+- Mass is conserved
+- The rate of change of momentum is equal to    
+the force applied
+- Energy is conserved
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Flow Model
+
+Z
+
+Y
+
+X
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Mass
+• The mass of the fluid 
+element – as it moves 
+through the fluid -
+remains constant
+• In other words, the 
+substantial derivative 
+of mass is zero
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Mass
+
+𝐷𝑚
+𝐷𝑡
+
+=
+
+𝐷(ρ𝑣)
+𝐷𝑡
+
+= 0
+
+Invoke the meaning of 
+‘divergence’ as fractional 
+rate of change of volume
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Mass
+
+𝐷ρ
+𝐷𝑡
+
++ ρ∇.V = 0
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+𝐷(𝑚𝑢)
+𝐷𝑡
+
+• The rate at which the 
+momentum of the fluid 
+element changes in the 
+X direction – as it 
+moves through the fluid 
+– is equal to the total 
+force acting on it in the 
+X direction
+
+ΣFx
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+V = (u,v,w)
+
+Conservation of Momentum
+
+𝐷(𝑚𝑢)
+𝐷𝑡
+
+= ΣFx
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+(ρdxdydz)𝐷(𝑢)
+𝐷𝑡
+
+= ΣFx
+
+Body Forces
+
+1
+
+2
+
+Gravity
+
+Magnetic
+
+Surface Forces
+
+1
+
+2
+
+Pressure
+
+Viscous Forces
+
+dz
+
+dy
+
+dx
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Body Forces
+
+Z
+
+Y
+
+X
+
+8
+
+5
+
+4
+
+1
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+fx(ρdxdydz)
+
+Pressure Forces
+
+pdydz
+
+Z
+
+Y
+
+X
+
+8
+
+5
+
+4
+
+1
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+(p + 
+
+𝜕p
+𝜕x
+
+dx)dydz
+
+Viscous Forces
+
+8
+
+(τzx + 
+
+𝜕τzx
+𝜕z
+
+dz)dxdy
+
+7
+
+4
+
+3
+
+τxxdydz
+
+(τyx + 
+
+𝜕τyx
+𝜕y
+
+dy)dxdz
+
+(τxx + 
+
+𝜕τxx
+𝜕x
+
+dx)dydz
+
+Z
+
+Y
+
+X
+
+τyxdxdz
+
+5
+
+6
+
+1
+
+τzxdxdy
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+(ρdxdydz)𝐷(𝑢)
+𝐷𝑡
+dxdydz + 
+
+𝜕τyx
+𝜕y
+
+𝜕p
+=
+𝜕x
+𝜕τzx
+𝜕z
+
+dxdydz + 
+
+𝜕τxx
+𝜕x
+dxdydz + fx(ρdxdydz)
+
+dxdydz + 
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
++ 
+
+𝜕τxx
+𝜕x
+
++ 
+
+𝜕τyx
+𝜕y
+
++ 
+
+𝜕τzx
+𝜕z
+
++ fxρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
++ 
+
+𝜕τxx
+𝜕x
+
++ 
+
+𝜕τyx
+𝜕y
+
++ 
+
+𝜕τzx
+𝜕z
+
++ fxρ
+
+ρ𝐷(𝑣)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕y
+
++ 
+
+𝜕τxy
+𝜕x
+
++ 
+
+𝜕τyy
+𝜕y
+
++ 
+
+𝜕τzy
+𝜕z
+
++ fyρ
+
+ρ𝐷(𝑤)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕𝑧
+
++ 
+
+𝜕τxz
+𝜕x
+
++ 
+
+𝜕τyz
+𝜕y
+
++ 
+
+𝜕τzz
+𝜕𝑧
+
++ fzρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Newtonian Fluid
+
+Newtonian fluids exhibit a linear 
+relationship between viscous 
+stress and velocity gradients 
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
++ 
+
+𝜕τxx
+𝜕x
+
++ 
+
+𝜕τyx
+𝜕y
+
++ 
+
+𝜕τzx
+𝜕z
+
++ fxρ
+
+ρ𝐷(𝑣)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕y
+
++ 
+
+𝜕τxy
+𝜕x
+
++ 
+
+𝜕τyy
+𝜕y
+
++ 
+
+𝜕τzy
+𝜕z
+
++ fyρ
+
+ρ𝐷(𝑤)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕𝑧
+
++ 
+
+𝜕τxz
+𝜕x
+
++ 
+
+𝜕τyz
+𝜕𝑦
+
++ 
+
+𝜕τzz
+𝜕𝑧
+
++ fzρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+τxx
+
+τxy
+
+τxz
+
+τyx
+
+τyy
+
+τyz
+
+τzx
+
+τzy
+
+τzz
+
+a11
+
+a21
+
+a31
+
+a41
+
+a51
+
+a61
+
+a71
+
+a81
+
+a91
+
+a12
+
+a22
+
+a32
+
+a42
+
+a52
+
+a62
+
+a72
+
+a82
+
+a92
+
+a13
+
+a23
+
+a33
+
+a43
+
+a53
+
+a63
+
+a73
+
+a83
+
+a93
+
+a14
+
+a24
+
+a34
+
+a44
+
+a54
+
+a64
+
+a74
+
+a84
+
+a94
+
+a15
+
+a25
+
+a35
+
+a45
+
+a55
+
+a65
+
+a75
+
+a85
+
+a95
+
+a16
+
+a26
+
+a36
+
+a46
+
+a56
+
+a66
+
+a76
+
+a86
+
+a96
+
+a17
+
+a27
+
+a37
+
+a47
+
+a57
+
+a67
+
+a77
+
+a87
+
+a97
+
+a18
+
+a28
+
+a38
+
+a48
+
+a58
+
+a68
+
+a78
+
+a88
+
+a98
+
+a19
+
+a29
+
+a39
+
+a49
+
+a59
+
+a69
+
+a79
+
+a89
+
+a99
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜕u
+𝜕x
+𝜕v
+𝜕x
+𝜕w
+𝜕x
+𝜕u
+𝜕𝑦
+𝜕v
+𝜕y
+𝜕w
+𝜕y
+𝜕u
+𝜕𝑧
+𝜕v
+𝜕z
+𝜕w
+𝜕z
+
+τxx
+
+τxy
+
+τxz
+
+τyx
+
+τyy
+
+τyz
+
+τzx
+
+τzy
+
+τzz
+
+Number of parameters can be reduced from 81 to 2 through logical arguments
+λ
+λ
+
+λ+2μ
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+λ
+
+0
+
+0
+
+0
+
+λ
+
+μ
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+μ
+
+0
+
+0
+
+μ
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+λ+2μ
+
+0
+
+0
+
+0
+
+λ
+
+0
+
+0
+
+0
+
+0
+
+μ
+
+0
+
+μ
+
+0
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+μ
+
+0
+
+μ
+
+0
+
+0
+
+0
+
+0
+
+λ
+
+0
+
+0
+
+0
+
+λ+2μ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜕u
+𝜕x
+𝜕v
+𝜕x
+𝜕w
+𝜕x
+𝜕u
+𝜕𝑦
+𝜕v
+𝜕y
+𝜕w
+𝜕y
+𝜕u
+𝜕𝑧
+𝜕v
+𝜕z
+𝜕w
+𝜕z
+
+Stokes’ Hypothesis
+
+λ = −
+
+2
+3
+
+μ
+
+Sir George Stokes
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Viscous Stresses
+
+τxx =
+
+2μ
+3
+
+[2
+
+𝜕𝑢
+𝜕x
+
+-
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+τxy ,τyx = μ[
+
+𝜕𝑣
+𝜕x
+
+τyy =
+
+τzz =
+
+2μ
+3
+
+2μ
+3
+
+[−
+
+𝜕𝑢
+𝜕x
+
++ 2
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+τxz ,τzx = μ[
+
+𝜕𝑤
+𝜕x
+
+[−
+
+𝜕𝑢
+𝜕x
+
+-
+
+𝜕𝑣
+𝜕y
+
++ 2
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+τyz ,τzy = μ[
+
+𝜕𝑤
+𝜕y
+
++ 
+
+𝜕𝑢
+𝜕y
+
+]
+
++ 
+
+𝜕𝑢
+𝜕z
+
+]
+
++ 
+
+𝜕𝑣
+𝜕z
+
+]
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+τyx = μ[
+
+𝜕𝑣
+𝜕x
+
++ 
+
+𝜕𝑢
+𝜕y
+
+]
+
+τzx = μ[
+
+𝜕𝑤
+𝜕x
+
++ 
+
+𝜕𝑢
+𝜕z
+
+]
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
++ 
+
+𝜕τxx
+𝜕x
+
++ 
+
+𝜕τyx
+𝜕y
+
++ 
+
+𝜕τzx
+𝜕z
+
++ fxρ
+
+τxx =
+
+2μ
+3
+
+[2
+
+𝜕𝑢
+𝜕x
+
+-
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Momentum
+
+ρ
+
+𝜕u
+𝜕t
+
+ρ[
+
+𝜕u
+𝜕t
+
++ V. ∇u = -
+𝜕𝑢
+𝜕y
+
++ 
+
+2μ
+3
+
++ 
+
+𝜕p
+𝜕x
+] + μ
+
+𝜕
+𝜕z
+
+-
+
+𝜕
+[2
+𝜕x
+𝜕𝑤
+[
+𝜕x
+
+𝜕𝑢
+𝜕x
++ 
+
+𝜕𝑢
+𝜕z
+
+-
+
+𝜕𝑣
+𝜕𝑤
+𝜕y
+𝜕𝑧
+] + fxρ
+
+] + μ
+
+𝜕
+𝜕y
+
+𝜕𝑣
+[
+𝜕x
+
++ u 𝜕𝑢
+𝜕x
+𝜕𝑤
+] + μ
+𝜕𝑧
+
++ w 𝜕𝑢
++ v 𝜕𝑢
+𝜕z
+𝜕y
+𝜕𝑢
+𝜕𝑣
+𝜕
+] + μ
+[
+𝜕y
+𝜕x
+𝜕y
+
+] = -
+𝜕
+𝜕z
+
++ 
+
+𝜕p
+𝜕x
+[
+
++ 
+
+𝜕𝑤
+𝜕x
+
+2μ
+3
++ 
+
+-
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕
+𝜕x
+𝜕𝑢
+𝜕z
+
+[2
+
+𝜕𝑢
+𝜕x
+] + fxρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+ρ[𝜕u
+
+𝜕t
+
++ u
+
+𝜕𝑢
+
+𝜕x
+
++ v
+
+𝜕𝑢
+
+𝜕y
+
++ w
+
+𝜕𝑢
+
+] = -
+
+𝜕p
+𝜕x
+
++ 
+
+2μ
+3
+
+𝜕z
+] + μ
+
+𝜕𝑢
+𝜕y
+
+𝜕
+𝜕z
+
+𝜕𝑤
+[
+𝜕x
+
++ 
+
+𝜕
+𝜕x
+𝜕𝑢
+𝜕z
+
+[2
+
+𝜕𝑢
+𝜕x
+] + fxρ
+
+-
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+] + μ
+
+𝜕
+𝜕y
+
+𝜕𝑣
+[
+𝜕x
+
++ 
+
+ρ[𝜕v
+
+𝜕t
+
++ u
+
+𝜕𝑣
+
+𝜕x
+
++ v
+
+𝜕𝑣
+
+𝜕y
+
++ w
+
+] = -
+
+𝜕𝑣
+
+𝜕z
+𝜕𝑤
+𝜕𝑧
+
+] + μ
+
+𝜕p
+𝜕y
+𝜕
+𝜕z
+
++ μ
+
+𝜕
+𝜕x
+
+𝜕𝑤
+[
+𝜕y
+
++ 
+
+𝜕𝑣
+𝜕z
+
++ 
+
+𝜕𝑣
+𝜕𝑢
+[
+𝜕x
+𝜕y
+] + fyρ
+
+] + 
+
+2μ
+3
+
+𝜕
+𝜕y
+
+[−
+
+𝜕𝑢
+𝜕x
+
++2 
+
+𝜕𝑣
+𝜕y
+
+-
+
+ρ[𝜕w
+
+𝜕t
+
++ u
+
+𝜕𝑤
+
+𝜕x
+
++ v
+
+𝜕𝑤
+
+𝜕y
+
++ w
+
+] = -
+
++ μ
+
+𝜕𝑤
+
+𝜕z
+𝜕
+𝜕z
+
+2μ
+3
+
+[−
+
+𝜕𝑢
+𝜕x
+
+𝜕p
+𝜕z
+𝜕𝑣
+𝜕y
+
+-
+
++2 
+
+𝜕
+𝜕x
+𝜕𝑤
+𝜕𝑧
+
+] + μ
+
+𝜕
+𝜕y
+
+𝜕𝑤
+[
+𝜕y
+
++ 
+
+𝜕𝑣
+𝜕z
+
+] +
+
+𝜕𝑢
+𝜕z
+
++ 
+
+𝜕𝑤
+[
+𝜕x
+] + fzρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+A Much More Convenient Form
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
++ 
+
+𝜕τxx
+𝜕x
+
++ 
+
+𝜕τyx
+𝜕y
+
++ 
+
+𝜕τzx
+𝜕z
+
++ fxρ
+
+ρ𝐷(𝑣)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕y
+
++ 
+
+𝜕τxy
+𝜕x
+
++ 
+
+𝜕τyy
+𝜕y
+
++ 
+
+𝜕τzy
+𝜕z
+
++ fyρ
+
+ρ𝐷(𝑤)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕z
+
++ 
+
+𝜕τxz
+𝜕x
+
++ 
+
+𝜕τyz
+𝜕y
+
++ 
+
+𝜕τzz
+𝜕z
+
++ fzρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Rudolf Clausius
+
+William Rankine
+
+Conservation of Energy
+
+• The rate at which the 
+energy of the fluid element 
+changes – as it moves 
+through the fluid – is equal 
+to the rate of work done 
+on it and the rate at which 
+energy is transferred into it
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+
+• The rate at which the 
+energy of the fluid element 
+changes – as it moves 
+through the fluid – is equal 
+to the rate of work done 
+on it and the rate at which 
+energy is transferred into it
+
+𝐷(𝐸)
+𝐷𝑡
+
+Σ(F.V)
+
+Σ( ሶ𝑄)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+V = (u,v,w)
+
+Conservation of Energy
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Rate of Change of What Exactly?
+
+𝐷(𝐸)
+𝐷𝑡
+
+The ‘bees-in-a-car’ 
+thought-experiment
+
+Source: Josh Dutton, “'That’s crazy': Baffling photo of woman driving a car 
+full of bees,” Yahoo News Australia, 22 March 2021
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Energy of the bees
+
+Energy due to the 
+bees flapping 
+their wings
+
+Energy due to the 
+bees flying around 
+within the car
+
+Energy due to 
+the car’s motion
+
+“INTERNAL” ENERGY
+
+KINETIC ENERGY
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Rate of Change of What Exactly?
+
+Atoms/Molecules 
+have translational 
+velocities as 
+measured in the 
+reference frame 
+attached to the 
+moving volume
+
+Z
+
+Y
+
+X
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Molecules can also 
+have rotational and 
+vibrational energy 
+
+Rate of Change of What Exactly?
+
+Atoms/Molecules 
+can also have 
+kinetic energy due 
+to moving en masse
+
+Z
+
+Y
+
+X
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Rate of Change of What Exactly?
+
+𝐷(𝐸)
+𝐷𝑡
+
+𝐷(𝑚𝑒 + 1
+2
+𝐷𝑡
+
+= 
+
+𝑚|V|2)
+
+dz
+
+dy
+
+dx
+
+V = (u,v,w)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Internal Energy
+
+𝑒 = 𝑓𝑢𝑛𝑐𝑡𝑖𝑜𝑛(𝑇, 𝑝)
+
+‘Calorically perfect gas’
+
+𝑒 = 𝑐𝑣𝑇
+
+‘Ideal gas’
+
+𝑒 = 
+
+𝑝
+(γ−1)ρ
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+𝐷(𝑒 + 1
+2|V|2)
+𝐷𝑡
+
+(ρdxdydz)
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Pressure Forces
+
+(pdydz)*u
+
+Z
+
+Y
+
+X
+
+8
+
+5
+
+4
+
+1
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+[(p + 
+
+dx)dydz]* 
+
+𝜕p
+𝜕x
+𝜕u
+𝜕x
+
+(u + 
+
+dx)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Viscous Forces
+
+8
+
+(τzx + 
+
+𝜕τzx
+𝜕z
+
+dz)dxdy
+
+* (w + 
+7
+
+𝜕w
+𝜕z
+
+dz)
+
+(τxxdydz)*u
+
+Z
+
+Y
+
+X
+
+4
+
+3
+
+(τyx + 
+
+𝜕τyx
+𝜕y
+
+* (v + 
+
+dy)dxdz
+
+𝜕v
+𝜕x
+
+dy)
+
+(τyxdxdz)*v
+
+5
+
+6
+
+1
+
+(τzxdxdy)*w
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+dx)dydz]*
+
+[(τxx + 
+𝜕u
+
+(u + 
+
+𝜕τxx
+𝜕x
+dx)
+
+𝜕x
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Body Forces
+
+Z
+
+Y
+
+X
+
+8
+
+5
+
+4
+
+1
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+fx(ρdxdydz)*u
+
+Conservation of Energy
+𝐷(𝑒 + 1
+2|V|2)
+𝐷𝑡
+
+(ρdxdydz)
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+𝜕(pu)
+
+(ρdxdydz)[-
+𝜕(τyyv)
+𝜕𝑦
+
++ 
+
++ 
+
+𝜕x
+𝜕(τzyv)
+𝜕𝑧
+
+-
+
++ 
+
+𝜕(pv)
+
+-
+𝜕𝑦
+𝜕(τxzw)
+𝜕𝑥
+
+𝜕(pw)
+
++ 
+𝜕𝑧
+𝜕(τyzw)
++ 
+𝜕𝑦
+
+𝜕(τxxu)
+𝜕𝑥
++ 
+
++ 
+𝜕(τzzw)
+𝜕𝑧
+
+𝜕(τyxu)
+𝜕(τzxu)
+𝜕𝑦
+𝜕𝑧
++ fxu + fyv + fzw]
+
++ 
+
++ 
+
+𝜕(τxyv)
+𝜕𝑥
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+Volumetric 
+Heating
+
+1
+
+Radiation
+
+Surface 
+Heating
+
+1
+
+Conduction
+
+dz
+
+dy
+
+dx
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+ሶq(ρdxdydz)
+
+Volumetric Heating
+
+8
+
+4
+
+1
+
+5
+
+Z
+
+Y
+
+X
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+8
+
+5
+
+Conductive Heating
+
+4
+
+1
+
+ሶqx(dydz)
+
+Z
+
+Y
+
+X
+
+7
+
+6
+
+3
+
+2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+( ሶqx + 
+
+𝜕 ሶqx
+𝜕x
+
+dx)dydz
+
+Conservation of Energy
+𝐷(𝑒 + 1
+2|V|2)
+𝐷𝑡
+
+(ρdxdydz)
+
+(dxdydz)[-
+
+𝜕 ሶqx
+𝜕x
+
+-
+
+𝜕 ሶqy
+𝜕y
+
+-
+
+𝜕 ሶqz
+𝜕𝑧
+
++ ρ ሶq]
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+𝜕(pu)
+
+(ρdxdydz)[-
+𝜕(τyyv)
+𝜕𝑦
+
++ 
+
++ 
+
+𝜕x
+𝜕(τzyv)
+𝜕𝑧
+
+-
+
++ 
+
+𝜕(pv)
+
+-
+𝜕𝑦
+𝜕(τxzw)
+𝜕𝑥
+
+𝜕(pw)
+
++ 
+𝜕𝑧
+𝜕(τyzw)
++ 
+𝜕𝑦
+
+𝜕(τxxu)
+𝜕𝑥
++ 
+
++ 
+𝜕(τzzw)
+𝜕𝑧
+
+𝜕(τyxu)
+𝜕(τzxu)
+𝜕𝑦
+𝜕𝑧
++ fxu + fyv + fzw]
+
++ 
+
++ 
+
+𝜕(τxyv)
+𝜕𝑥
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Fourier’s Law
+
+ሶqx = −𝑘
+
+𝜕𝑇
+𝜕x
+
+Joseph Fourier
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+𝐷(𝑒 + 1
+2|V|2)
+𝐷𝑡
+
+(ρdxdydz)
+
+(dxdydz)[
+
+𝜕
+𝜕x
+
+(𝑘
+
+𝜕𝑇
+𝜕x
+
+)+ 
+
+𝜕
+𝜕y
+
+(𝑘
+
+𝜕𝑇
+𝜕y
+
+)+ 
+
+𝜕
+𝜕𝑧
+
+(𝑘
+
+𝜕𝑇
+𝜕z
+
+)+ρ ሶq]
+
+𝐷(𝐸)
+𝐷𝑡
+
+= Σ(F.V) + Σ( ሶ𝑄)
+
+𝜕(pu)
+
+𝜕(pv)
+
+𝜕(pw)
+
+(dxdydz)[
+𝜕(τxxu)
+𝜕𝑥
+
++ 
+
++ 
+
++
+𝜕x
+𝜕(τxxu)
+𝜕𝑥
+
++ 
+𝜕𝑦
+𝜕(τxxu)
++ 
+𝜕𝑥
+
+𝜕𝑧
++ 
+
+𝜕(τxxu)
+𝜕𝑥
++ 
+
++ 
+𝜕(τxxu)
+𝜕𝑥
+
++ 
+𝜕(τxxu)
+𝜕𝑥
+
+𝜕(τxxu)
+𝜕(τxxu)
+𝜕𝑥
+𝜕𝑥
++ ρ (fxu + fyv + fzw)]
+
+𝜕(τxxu)
+𝜕𝑥
+
++ 
+
++ 
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+
+(ρdxdydz)
+
+𝐷 𝑒 + 1
+2|V|2
+𝐷𝑡
+
+= (dxdydz)[
+
+𝜕𝑇
+𝜕z
+
+𝜕
+𝑘
+𝜕𝑧
+𝜕 τxxu
+𝜕𝑥
+
++
+𝜕 τxzw
+𝜕𝑥
+
++ρ ሶq] + (dxdydz)[−
+𝜕 τzxu
+𝜕𝑧
+
+𝜕 τyxu
+𝜕𝑦
+
++
+𝜕 τyzw
+𝜕𝑦
+
++
+𝜕 τzzw
+𝜕𝑧
+
++
+
++
+
++
+
+−
+
+𝑘
+
+𝑘
+
+𝜕
+𝜕x
+
+𝜕
+𝜕y
+
+𝜕𝑇
+𝜕x
+𝜕 pu
+𝜕 pv
+𝜕 pw
+𝜕x
+𝜕𝑦
+𝜕𝑧
+𝜕 τxyv
+𝜕 τyyv
+𝜕 τzyv
+𝜕𝑥
+𝜕𝑦
+𝜕𝑧
++ ρ (fxu + fyv + fzw)]
+
+−
+
++
+
++
+
+𝜕𝑇
+𝜕y
+
++
+
++
+
++
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Conservation of Energy
+
+=
+
+2|V|2
+
+ρ𝐷 𝑒 + 1
+𝐷𝑡
+𝜕 pu
+𝜕x
++
+𝜕 τyzw
+𝜕𝑦
+
+ρ ሶq −
+𝜕 τzxu
+𝜕𝑧
+
+𝜕
+𝜕x
+𝜕 pv
+−
+𝜕𝑦
+𝜕 τxyv
+𝜕𝑥
++
+
++
+𝜕 τzzw
+𝜕𝑧
+
+(𝑘
+
+) +
+
+𝜕
+𝜕y
++
+
+𝜕𝑇
+𝜕𝑇
+𝜕
+𝜕𝑇
+) +
+(𝑘
+(𝑘
+𝜕x
+𝜕y
+𝜕𝑧
+𝜕z
+𝜕 τxxu
+𝜕 τyxu
+𝜕 pw
+−
++
+𝜕𝑧
+𝜕𝑥
+𝜕𝑦
+𝜕 τyyv
+𝜕 τzyv
+𝜕 τxzw
+𝜕𝑦
+𝜕𝑧
+𝜕𝑥
++ ρ (fxu + fyv + fzw)
+
++
+
++
+
+) +
+
++
+
++
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Hierarchy of 
+Fluid Dynamical 
+Models
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝐷ρ
+𝐷𝑡
+
++ ρ∇.V = 0
+
+ρ𝐷(𝑢)
+𝐷𝑡
+
+ρ𝐷(𝑣)
+𝐷𝑡
+
+= -
+
+= -
+
+ρ𝐷(𝑤)
+𝐷𝑡
+
+= -
+
+𝜕p
+𝜕x
+
+𝜕p
+𝜕y
+
+𝜕p
+𝜕𝑧
+
++ 
+
++ 
+
++ 
+
+𝜕τxx
+𝜕x
+𝜕τxy
+𝜕x
+𝜕τxz
+𝜕x
+
++ 
+
++ 
+
++ 
+
+𝜕τyx
+𝜕y
+𝜕τyy
+𝜕y
+𝜕τyz
+𝜕y
+
++ 
+
++ 
+
++ 
+
+𝜕τzx
+𝜕z
+𝜕τzy
+𝜕z
+𝜕τzz
+𝜕𝑧
+
++ fxρ
+
++ fyρ
+
++ fzρ
+
+ρ𝐷 𝑒 + 1
+𝐷𝑡
++
+
+𝜕 τyxu
+𝜕𝑦
+
+2|V|2
+
+𝜕 τzxu
+𝜕𝑧
+
+=
+
++
+
+) +
+
+𝜕
+(𝑘
+𝜕x
+𝜕 τxyv
+𝜕𝑥
+
+𝜕𝑇
+𝜕x
++
+
+(𝑘
+
+𝜕
+𝜕y
+𝜕 τyyv
+𝜕𝑦
+
+𝜕𝑇
+𝜕y
++
+
+𝜕
+) +
+𝜕𝑧
+𝜕 τzyv
+𝜕𝑧
+
+(𝑘
+
++
+
+𝜕𝑇
+𝜕z
+𝜕 τxzw
+𝜕𝑥
+
+) + ρ ሶq −
+
+𝜕 pu
+𝜕x
+𝜕 τyzw
+𝜕𝑦
+
+−
+
++
+
+𝜕 pv
+−
+𝜕𝑦
+𝜕 τzzw
+𝜕𝑧
+
+𝜕 pw
+𝜕𝑧
+
++
+
+𝜕 τxxu
+𝜕𝑥
+
++
+
++ ρ (fxu + fyv + fzw)
+
++
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑒 = Cv𝑇
+2μ
+3
+
+τxx =
+
+[2
+
+𝜕𝑢
+𝜕x
+
+-
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+τyy =
+
+τzz =
+
+2μ
+3
+
+2μ
+3
+
+[−
+
+[−
+
+𝜕𝑢
+𝜕x
+
+𝜕𝑢
+𝜕x
+
++ 2
+
+𝜕𝑣
+𝜕y
+
+-
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+-
+
+𝜕𝑣
+𝜕y
+
++ 2
+
+𝜕𝑤
+𝜕𝑧
+
+]
+
+𝑝 = ρ𝑅𝑇
+𝜕𝑣
+𝜕𝑢
+𝜕x
+𝜕y
+
++ 
+
+]
+
+τxy ,τyx = μ[
+
+τxz ,τzx = μ[
+
+𝜕𝑤
+𝜕x
+
+τyz ,τzy = μ[
+
+𝜕𝑤
+𝜕y
+
++ 
+
+𝜕𝑢
+𝜕z
+
+]
+
++ 
+
+𝜕𝑣
+𝜕z
+
+]
+
+𝐷( )
+𝐷𝑡
+
+=
+
+𝜕( )
+𝜕𝑡
+
++ 𝑽 ⋅ ∇( )
+
+𝜇 = 𝜇𝑟𝑒𝑓
+
+Τ3
+2
+
+𝑇𝑟𝑒𝑓+S
+[
+𝑇+𝑆
+
+]
+
+𝑇
+𝑇𝑟𝑒𝑓
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+List of unknowns
+
+Unknowns
+ρ
+p
+u, v, w
+T
+e
+μ
+
+Appearance(s)
+Mass, Momentum, Energy, Ideal Gas
+Momentum, Ideal Gas
+Mass, Momentum, Energy
+Energy, Ideal Gas
+Energy, Linear function of temperature
+Function of temperature (‘Sutherland’s Law’)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+The Case for Simplification
+
+Simplify the Navier-
+Stokes equations 
+whenever justifiable!
+
+The Navier-Stokes System of Equations
+
+The problem you’re simulating
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+l
+
+a
+n
+o
+i
+s
+n
+e
+m
+d
+-
+e
+n
+O
+
+i
+
+l
+
+a
+n
+o
+i
+t
+a
+t
+o
+r
+r
+I
+
+y
+d
+a
+e
+t
+S
+
+l
+
+e
+b
+i
+s
+s
+e
+r
+p
+m
+o
+c
+n
+
+I
+
+d
+i
+c
+s
+i
+v
+n
+
+I
+
+l
+
+a
+n
+o
+i
+s
+n
+e
+m
+d
+-
+o
+w
+T
+
+i
+
+s
+w
+o
+l
+F
+g
+n
+i
+t
+c
+a
+e
+R
+
+S
+.
+N
+
+l
+l
+
+u
+F
+
+e
+s
+a
+h
+p
+i
+t
+l
+u
+M
+
+c
+i
+t
+s
+i
+v
+i
+t
+a
+e
+R
+
+l
+
+The ‘FIDELITY LADDER’
+
+Less 
+Complex
+
+“3D, unsteady, 
+compressible, viscous 
+flow for an ideal, 
+calorically perfect gas”
+
+More 
+Complex
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+ 
+ 
+ 
+

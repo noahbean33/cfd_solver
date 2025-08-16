@@ -1,0 +1,2077 @@
+Difference 
+Equations
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Differential Equations
+The ‘source code’ of the universe is written in the 
+language of differential equations i.e mathematical 
+relationships between derivatives
+
+Name
+Schrödinger’s Equation
+Newton’s 2nd Law
+Navier-Stokes Equation
+Einstein’s Field Equations
+
+Describes
+Evolution of a QM wave function
+Motion of macroscopic objects
+Behavior of Fluids
+Geometry of spacetime
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Differential Equations
+
+Not all differential equations have analytical solutions!
+
+θ
+
+𝑙
+
+m
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙 sin 𝜃
+
+sin 𝜃 ≈ 𝜃
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙𝜃
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙 sin 𝜃
+
+𝜃
+
+“Initial Conditions”
+
+“Mesh” or “Grid” or “Lattice”
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑡
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙 sin 𝜃
+
+VS
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙𝜃
+
+𝜃0 = 10o
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙 sin 𝜃
+
+VS
+
+𝑚𝑙2 ⅆ2𝜃
+
+ⅆ𝑡2 = −𝑚𝑔𝑙𝜃
+
+𝜃0 = 45o
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Approximate 
+derivatives at ‘a’
+
+Approximate 
+differential 
+equation at point ‘a’
+
+Solve
+
+Taylor Series
+
+Some differential 
+equations have no 
+analytical solutions
+
+Create a “mesh”
+
+Function values at 
+‘a’ and neighboring 
+points
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+1D Heat Equation
+
+Tcold
+
+𝜕𝑇
+𝜕𝑡
+
+= 𝛼
+
+𝜕2𝑇
+𝜕𝑥2
+
+Thot
+
+𝑥
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+1D Heat Equation
+
+Tcold
+
+“Boundary 
+Condition”
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+“Boundary 
+Condition”
+
+Thot
+
+𝑡
+
+𝜕𝑇
+𝜕𝑡
+
+= 𝛼
+
+𝜕2𝑇
+𝜕𝑥2
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛
+𝑛+1−𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛 −2𝑇𝑖
+𝑇𝑖+1
+Δ𝑥2
+
+𝑛
+𝑛+ 𝑇𝑖−1
+
+𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛+1= 𝑇𝑖
+𝑇𝑖
+
+𝑛 +
+
+𝑡
+
+𝛼Δ𝑡
+Δ𝑥2 (𝑇𝑖+1
+
+𝑛 −2𝑇𝑖
+
+𝑛 )
+𝑛+ 𝑇𝑖−1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝜕𝑇
+𝜕𝑡
+
+= 𝛼
+
+𝜕2𝑇
+𝜕𝑥2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Code Extension
+1. Rerun the code with different timestep sizes
+2. Replace the second-order accurate spatial 
+scheme with a fourth-order spatial scheme
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Explicit vs 
+Implicit 
+Methods
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛
+𝑛+1−𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛 −2𝑇𝑖
+𝑇𝑖+1
+Δ𝑥2
+
+𝑛
+𝑛+ 𝑇𝑖−1
+
+𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛
+𝑛+1−𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛+1−2𝑇𝑖
+𝑇𝑖+1
+
+𝑛+1
+𝑛+1+ 𝑇𝑖−1
+Δ𝑥2
+
+𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛+1= 𝑇𝑖
+𝑇𝑖
+
+𝑛 +
+
+𝛼Δ𝑡
+Δ𝑥2 (𝑇𝑖+1
+
+𝑛+1−2𝑇𝑖
+
+𝑛+1+ 𝑇𝑖−1
+
+𝑛+1)
+
+−𝐾𝑇𝑖−1
+
+𝑛+1 + (1 + 2𝐾)𝑇𝑖
+
+𝑛+1−𝐾𝑇𝑖+1
+
+𝑛
+𝑛+1= 𝑇𝑖
+
+Implicit method updates have 
+multiple ‘coupled’ unknowns
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+1D Heat Equation
+
+Tcold
+
+“Boundary 
+Condition”
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+“Boundary 
+Condition”
+
+Thot
+
+−𝐾𝑇𝑖−1
+
+𝑛+1 + (1 + 2𝐾)𝑇𝑖
+−𝐾𝑇1
+
+When 𝑖 = 2:
+
+When 𝑖 = 3:
+
+When 𝑖 = 4:
+
+When 𝑖 = 5:
+
+When 𝑖 = 6:
+
+When 𝑖 = 7:
+
+𝑛+1−𝐾𝑇𝑖+1
+𝑛+1−𝐾𝑇3
+𝑛+1−𝐾𝑇4
+𝑛+1−𝐾𝑇5
+𝑛+1−𝐾𝑇6
+𝑛+1−𝐾𝑇7
+𝑛+1−𝐾𝑇8
+
+𝑛
+𝑛+1= 𝑇𝑖
+𝑛
+𝑛+1= 𝑇2
+𝑛
+𝑛+1= 𝑇3
+𝑛+1= 𝑇4
+𝑛
+𝑛
+𝑛+1= 𝑇5
+𝑛
+𝑛+1= 𝑇6
+𝑛+1= 𝑇7
+𝑛
+
+𝑛+1 + (1 + 2𝐾)𝑇2
+𝑛+1 + (1 + 2𝐾)𝑇3
+𝑛+1 + (1 + 2𝐾)𝑇4
+𝑛+1 + (1 + 2𝐾)𝑇5
+𝑛+1 + (1 + 2𝐾)𝑇6
+𝑛+1 + (1 + 2𝐾)𝑇7
+
+−𝐾𝑇2
+
+−𝐾𝑇3
+
+−𝐾𝑇4
+
+−𝐾𝑇5
+
+−𝐾𝑇6
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+1 + 2𝐾 −𝐾
+
+0
+
+−𝐾 1 + 2𝐾 −𝐾
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+𝑛+1
+
+𝑇2
+
+𝑛+1
+
+𝑇3
+
+𝑛+1
+
+𝑇4
+
+𝑛+1
+
+𝑇5
+
+𝑛+1
+
+𝑇6
+
+𝑛+1
+
+𝑇7
+
+𝑛+𝐾𝑇1
+𝑇2
+
+𝑛
+𝑇3
+
+𝑛
+𝑇4
+
+𝑛
+𝑇5
+
+𝑛
+𝑇6
+
+𝑛+𝐾𝑇8
+𝑇7
+
+−𝐾 1 + 2𝐾 −𝐾
+
+−𝐾 1 + 2𝐾 −𝐾
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+−𝐾 1 + 2𝐾 −𝐾
+
+0
+
+−𝐾 1 + 2𝐾
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Von Neumann 
+Stability
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Explicit
+
+Implicit
+
+𝑛+1= 𝑇𝑖
+𝑇𝑖
+
+𝑛 +
+
+𝛼Δ𝑡
+Δ𝑥2 (𝑇𝑖+1
+
+𝑛 −2𝑇𝑖
+
+𝑛 )
+𝑛+ 𝑇𝑖−1
+
+Why go through the effort of creating 
+an implicit scheme when the explicit 
+approach is so much easier?
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1= 𝑇𝑖
+𝑇𝑖
+
+𝑛 +
+
+𝑡
+
+𝛼Δ𝑡
+Δ𝑥2 (𝑇𝑖+1
+
+𝑛 −2𝑇𝑖
+
+𝑛 )
+𝑛+ 𝑇𝑖−1
+
+1
+
+1
+
+1
+
+2
+
+2
+
+2
+
+3
+
+3
+
+3
+
+4
+
+4
+
+4
+
+5
+
+5
+
+5
+
+6
+
+6
+
+6
+
+7
+
+7
+
+7
+
+8
+
+8
+
+8
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+Set n = 0
+
+0
+Initialize  𝑇𝑖
+
+𝑛+1= 𝑇𝑖
+𝑇𝑖
+
+𝑛 +
+
+𝛼Δ𝑡
+Δ𝑥2 (𝑇𝑖+1
+
+𝑛 −2𝑇𝑖
+
+𝑛 )
+𝑛+ 𝑇𝑖−1
+
+STOP
+
+Converged 
+OR 
+Done?
+
+Set n = n + 1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Recurrence Relations
+
+Fn+2= Fn+1 + Fn
+
+xn+1= r*xn(1-xn)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+3
+5
+xn+1 + 
+xn+2= 
+2
+2
+
+xn
+
+xn = 𝑎 −2 −𝑛 + 𝑏 3 𝑛
+
+x0 = 2
+x1 = −0.5 2
+
+𝑎
+𝑏
+
+2
+0
+
+xn = 2 −2 −𝑛
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Representing a 
+number on a finite 
+precision machine 
+often requires 
+truncation which 
+introduces roundoff 
+error
+
+3
+5
+xn+1 + 
+xn+2= 
+2
+2
+
+xn
+
+xn = 𝑎 −2 −𝑛 + 𝑏 3 𝑛
+
+2 = 1.4142135623730950488016887242096980785696718753769480731766797379907324784621…
+
+x0 = 2 + ε0
+x1 = −0.5 2 + ε1
+
+𝑎 −2 −0 + 𝑏 3 0 = 2 + ε0
+𝑎 −2 −1 + 𝑏 3 1 = −0.5 2 + ε1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑎
+
+𝑏
+
+2 + 𝜀0 −
+
+𝜀0 + 2𝜀1
+7
+
+𝜀0 + 2𝜀1
+7
+
+xn = 𝑎 −2 −𝑛 + 𝑏 3 𝑛
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛
+𝑛+1−𝑇𝑖
+𝑇𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛 −2𝑇𝑖
+𝑇𝑖+1
+Δ𝑥2
+
+𝑛
+𝑛+ 𝑇𝑖−1
+
+Approximate solution on a machine with finite precision
+
+Exact solution of the difference equation
+
+Roundoff error, 𝐸- 𝑇
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑇
+
+𝐸
+
+ε
+
+(𝐸𝑖
+
+𝑛+1−ε𝑖
+
+𝑛+1) − (𝐸𝑖
+Δ𝑡
+
+𝑛 −ε𝑖
+
+𝑛)
+
+= 𝛼
+
+(𝐸𝑖+1
+
+𝑛 −ε𝑖+1
+
+𝑛 )−2(𝐸𝑖
+
+𝑛) + (𝐸𝑖−1
+
+𝑛 )
+𝑛 −ε𝑖−1
+
+𝑛−ε𝑖
+Δ𝑥2
+
+𝑛+1−𝐸𝑖
+𝑛
+𝐸𝑖
+Δ𝑡
+
+−
+
+𝑛+1−ε𝑖
+𝑛
+ε𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛 −2𝐸𝑖
+𝐸𝑖+1
+Δ𝑥2
+
+𝑛
+𝑛+ 𝐸𝑖−1
+
+−𝛼
+
+𝑛 −2ε𝑖
+ε𝑖+1
+Δ𝑥2
+
+𝑛+ ε𝑖−1
+
+𝑛
+
+𝐸 Exact solution of the difference equation
+
+𝑛
+𝑛+1−𝐸𝑖
+𝐸𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛 −2𝐸𝑖
+𝐸𝑖+1
+Δ𝑥2
+
+𝑛
+𝑛+ 𝐸𝑖−1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛
+𝑛+1−ε𝑖
+ε𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛
+𝑛+ ε𝑖−1
+
+𝑛 −2ε𝑖
+ε𝑖+1
+Δ𝑥2
+
+The roundoff error satisfies the difference equation!
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+ε
+
+𝑥
+
+Representative variation of 
+roundoff error across the mesh
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜺𝑛 = σ1
+
+∞Akejkx
+
+Any variation can be 
+decomposed into an infinite 
+series of sinusoids
+
+…..
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜺𝑛 = σ1
+
+∞Akejkx
+
+“Make sure the 
+amplification factor 
+stays below ONE!”
+
+𝜺𝑛 = Akejkx
+
+𝜺𝑛+1= (Akejkx)𝑒𝑎Δ𝑡
+
+John von Neumann
+
+Consider just one component 
+of the Fourier decomposition
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑡
+
+𝑛
+𝑛+1−ε𝑖
+ε𝑖
+Δ𝑡
+
+= 𝛼
+
+𝑛
+𝑛+ ε𝑖−1
+
+𝑛 −2ε𝑖
+ε𝑖+1
+Δ𝑥2
+
+Δx
+
+Δx
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+x
+
+A straightforward derivation to show 
+that stability requires (𝛼Δ𝑡/ Δ𝑥2) <= 1/2
+
+𝑛
+Akejkx
+ε𝑖
+𝑛
+Akejk(x-Δx)
+ε𝑖−1
+𝑛
+Akejk(x+Δx)
+ε𝑖+1
+𝑛+1 (Akejkx)𝑒𝑎Δ𝑡
+ε𝑖
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Numerical Error
+
+SEBASTIAN  THOMAS
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+1D (One-Way) Wave Equation
+
+f(x-ct)
+
+𝜕𝑢
+𝜕𝑡
+
++ 𝑐
+
+𝜕𝑢
+𝜕𝑥
+
+= 0
+
+𝑢left = 0
+
+𝑢right = 0
+
+𝑥
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑡
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛
+𝑛+1−𝑢𝑖
+𝑢𝑖
+Δ𝑡
+
+= −𝑐
+
+𝑛
+𝑛−𝑢𝑖−1
+𝑢𝑖
+Δ𝑥
+
+𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛+1= 𝑢𝑖
+𝑢𝑖
+
+𝑛 −
+
+𝑐Δ𝑡
+Δ𝑥
+
+(𝑢𝑖
+
+𝑛 )
+𝑛−𝑢𝑖−1
+
+𝑡
+
+CFL Number
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛
+𝑛+1−𝑢𝑖
+𝑢𝑖
+Δ𝑡
+
+= −𝑐
+
+𝑛
+𝑛−𝑢𝑖−1
+𝑢𝑖
+Δ𝑥
+
+A straightforward derivation to show 
+that stability requires 𝐶𝐹𝐿 <= 1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛
+𝑛+1−𝑢𝑖
+𝑢𝑖
+Δ𝑡
+
+= −𝑐
+
+𝑛
+𝑛−𝑢𝑖−1
+𝑢𝑖
+Δ𝑥
+
+𝑛 = 𝑢𝑖
+𝑢𝑖−1
+
+𝑛 −
+
+𝜕𝑢
+𝜕𝑥
+
+Δ𝑥 + 
+
+𝜕2𝑢
+𝜕𝑥2
+
+Δ𝑥 2
+2!
+
+−
+
+𝜕3𝑢
+𝜕𝑥3
+
+Δ𝑥 3
+3!
+
++ …
+
+𝑛+1= 𝑢𝑖
+𝑢𝑖
+
+𝑛 +
+
+𝜕𝑢
+𝜕𝑡
+
+Δ𝑡 + 
+
+𝜕2𝑢
+𝜕𝑡2
+
+Δ𝑡 2
+2!
+
++
+
+𝜕3𝑢
+𝜕𝑡3
+
+Δ𝑡 3
+3!
+
++ …
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
+Equation 
+we set out 
+to solve
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
++ 𝑐
+
+𝜕2𝑢
+𝜕𝑥2
+
+Δ𝑥
+2!
+
+(1 – CFL)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+Equation we 
+are actually
+solving (i.e
+the modified 
+equation)
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
++ 𝑐
+
+𝜕2𝑢
+𝜕𝑥2
+
+Δ𝑥
+2!
+
+(1-CFL)
+
+Assume solution is summation of terms like (Akejkx)𝑒α𝑡
+
+α Akejkx 𝑒α𝑡 = −𝑐𝑗𝑘(Akejkx)𝑒α𝑡+ 𝑐 𝑗𝑘 2(Akejkx)𝑒α𝑡 Δ𝑥
+
+2!
+
+(1 − 𝐶𝐹𝐿)
+
+α = −𝑐𝑗𝑘 − 𝑐𝑘2 Δ𝑥
+2!
+
+(1 − 𝐶𝐹𝐿)
+
+u x, t = Akejk(x-ct)e−(1−CFL)(𝑐𝑘2)Δ𝑥/2
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
++ 𝑅
+
+𝜕n𝑢
+𝜕𝑥𝑛
+
+Assume solution is summation of terms like (Akejkx)𝑒α𝑡
+
+α Akejkx 𝑒α𝑡 = −𝑐𝑗𝑘(Akejkx)𝑒α𝑡+ 𝑅 𝑗𝑘 𝑛(Akejkx)𝑒α𝑡
+
+α = −𝑐𝑗𝑘 + 𝑅 𝑗𝑘 𝑛
+
+u x, t = Ake𝑗𝑘 𝑥− 𝑐±(𝑅𝑘n 𝑡)
+
+u x, t = Akejk(x-ct)e±(𝑅𝑘n)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+α = −𝑐𝑗𝑘 + 𝑅 𝑗𝑘 𝑛
+
+Wave speeds are going to be ‘wrong’ 
+(DISPERSIVE ERROR)
+
+u x, t = Ake𝑗𝑘 𝑥− 𝑐±(𝑅𝑘n 𝑡)
+
+u x, t = Akejk(x-ct)e±(𝑅𝑘n)
+
+Wave amplitudes are going to be ‘wrong’ 
+(DISSIPATIVE ERROR)
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+MacCormack’s Method
+
+An example of a predictor-corrector 
+method that produces ‘dispersive error’
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑡
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑡
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝑛
+𝑛−𝑢𝑖−1
+𝑢𝑖
+Δ𝑥
+
+Candidate 1 
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛+1 = 𝑢𝑖
+෤𝑢𝑖
+
+𝑛 −
+
+𝑐Δ𝑡
+Δ𝑥
+
+(𝑢𝑖
+
+𝑛 )
+𝑛−𝑢𝑖−1
+
+𝑡
+
+“Predicted” value 
+at next timestep
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑡
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝑛+1
+
+𝑛+1−෤𝑢𝑖
+෤𝑢𝑖+1
+Δ𝑥
+
+Candidate 2 
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+(
+
+𝜕𝑢
+𝜕𝑡
+
+)av =
+
+1
+{(
+2
+
+𝜕𝑢
+𝜕𝑡
+
+)c1 + (
+
+𝜕𝑢
+𝜕𝑡
+
+)c2}
+
+𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑡
+
+𝑛+1 = 𝑢𝑖
+𝑢𝑖
+
+𝑛 +(
+
+𝜕𝑢
+𝜕𝑡
+“Corrected” value 
+at next timestep
+
+)avΔ𝑡
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖-3
+
+𝑖-2
+
+𝑖-1
+
+𝑖
+
+𝑖
+
+𝑖
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+𝑖+1
+
+𝑖+2
+
+𝑖+3 𝑖+4
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝑛+1
+
+𝑛
+
+𝑛-1
+
+𝑥
+
+𝑛+1 = 𝑢𝑖
+𝑢𝑖
+
+𝑛 +(
+
+𝜕𝑢
+𝜕𝑡
+
+)avΔ𝑡
+
+1
+{(
+2
+𝑛
+𝑛−𝑢𝑖−1
+𝑢𝑖
+Δ𝑥
+
+−𝑐
+
+𝜕𝑢
+𝜕𝑡
+
+)c1 + (
+
+𝜕𝑢
+𝜕𝑡
+
+)c2}
+
+−𝑐
+
+𝑛+1
+
+𝑛+1−෤𝑢𝑖
+෤𝑢𝑖+1
+Δ𝑥
+
+𝑛+1 = 𝑢𝑖
+෤𝑢𝑖
+
+𝑛 −
+
+𝑐Δ𝑡
+Δ𝑥
+
+(𝑢𝑖
+
+𝑛 )
+𝑛−𝑢𝑖−1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
++ 
+
+𝑐 Δ𝑥 2
+6
+
+𝜕3𝑢
+𝜕𝑥3 -
+
+𝑐3 Δ𝑡 2
+6
+
+𝜕3𝑢
+𝜕x3 + H.O.T
+
+MacCormack’s method is 
+second order accurate in 
+time and space!
+
+𝜕𝑢
+𝜕𝑡
+
+= −𝑐
+
+𝜕𝑢
+𝜕𝑥
+
++ 
+
+𝑐 Δ𝑥 2
+6
+
+𝜕3𝑢
+𝜕𝑥3 [1 - 𝐶𝐹𝐿 2] + H.O.T
+
+Dispersive quality of MacCormack
+will vanish when CFL = 1
+
+INTRODUCTION TO COMPUTATIONAL FLUID DYNAMICS
+
+
