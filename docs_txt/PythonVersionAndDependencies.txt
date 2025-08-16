@@ -1,18 +1,0 @@
-Dear Learner, 
-
-All code in this series was written in Python 3.10.1. 
-For a list of dependencies, please see the 
-requirements.txt file attached to this lecture. To 
-install these dependencies, use the following 
-command: 
-
-$ pip install -r requirements.txt 
-
-Cheers, 
-
-Seb 
-
- 
- 
- 
-

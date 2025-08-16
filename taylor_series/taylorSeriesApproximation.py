@@ -4,6 +4,8 @@ import numpy as np
 import math
 import matplotlib
 from matplotlib import pyplot as mplot
+from taylor_series.core import approximate, get_function
+from taylor_series.plotting import plot_comparison
 
 def TS_Prediction_exp(x0,x,numTerms):
     # Function to generate polynomial approximations for the exp function about x0
@@ -62,36 +64,34 @@ def taylorSeriesCheck(func):
         jump = 1
         maxTerms= 6
 
-    # The exact curve
+    # Plot exact curve
     fig, ax = mplot.subplots()
     ax.plot(x,y_exact,'k-', label='Exact Curve',linewidth=3)
 
-    # Polynomial approximations to the exact curve
+    # Polynomial approximations to the exact curve using new core API
     for numTerms in range(startTerm,maxTerms-startTerm+1,jump):
-        if func=='sin':
-            y = TS_Prediction_sin(anchorPoint,x,numTerms)
-        else:
-            y = TS_Prediction_exp(anchorPoint,x,numTerms)
+        y = approximate(func, anchorPoint, numTerms, x)
         ax.plot(x,y,'--',linewidth=3,label='Num terms = %s' %(numTerms))
-           
+
     mplot.title('Taylor Series Approximations', fontsize=24)
     mplot.xlim(xlim1,xlim2)
-    
+
     if func=='sin':
         mplot.ylim(-1.5,1.5)
     else:
         mplot.ylim(-0.5,5)
     mplot.xticks(fontsize=14)
     mplot.yticks(fontsize=14)
-    
+
     mplot.grid()
     mplot.ylabel('Y', fontsize=18, loc='center',rotation=90)
     mplot.xlabel('X', fontsize=18)
 
     mplot.legend(prop={'size': 14})
-        
+
     mplot.show(block=True)
 
 if __name__ == '__main__':
-    #taylorSeriesCheck('sin')
+    # Example usage; run from repository root:
+    # python .\\taylor_series\\taylorSeriesApproximation.py
     taylorSeriesCheck('exp')
