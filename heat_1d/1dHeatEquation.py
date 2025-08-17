@@ -6,6 +6,11 @@ import matplotlib
 from matplotlib import pyplot as mplot
 
 def solveHeatEquation(deltaT,numX,alpha,tMax,temp1,temp2,scheme):
+    """Solve 1D heat equation on [0,1] with Dirichlet BCs.
+
+    Explicit: y_i^{n+1} = y_i^n + C (y_{i+1}^n - 2 y_i^n + y_{i-1}^n), C = alpha*dt/dx^2
+    Implicit: (I - C T) y^{n+1} = rhs, solved via dense solve here (quick fix)
+    """
 
     deltaX = 1.0/(numX-1)
 
@@ -47,9 +52,10 @@ def solveHeatEquation(deltaT,numX,alpha,tMax,temp1,temp2,scheme):
          else:
             yold = np.copy(y)
             rhs = yold[1:-1]
-            rhs[0] = rhs[0]+C*yold[0]
-            rhs[-1] = rhs[-1]+C*yold[-1]
-            y[1:-1] = (np.linalg.inv(triDiag).dot(np.array([rhs]).T)).T
+            rhs[0] = rhs[0] + C*yold[0]
+            rhs[-1] = rhs[-1] + C*yold[-1]
+            # Quick fix: use solve instead of expensive/inaccurate inverse
+            y[1:-1] = np.linalg.solve(triDiag, rhs)
 
          time = time + deltaT
          count = count + 1
