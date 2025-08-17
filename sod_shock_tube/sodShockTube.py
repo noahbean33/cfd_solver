@@ -8,12 +8,14 @@ from numpy import genfromtxt
 
 # Geometric params
 def initializeGrid(Lx,Ly,nx,ny):
+    """Create a uniform grid and return mesh and spacings."""
     dx = Lx/(nx-1)
     dy = Ly/(ny-1)
     X, Y = np.meshgrid(np.linspace(0,Lx,nx), np.linspace(0,Ly,ny))
     return X,Y,dx,dy
 
 def initializeSolution(X,Y,nx,ny,gam,Lx,diaphragmLocation):
+    """Initialize Sod tube left/right states around diaphragmLocation (x)."""
 
     diaLocationIdx = int((nx-1)*diaphragmLocation/Lx)
     rho = np.zeros([ny,nx])
@@ -33,10 +35,12 @@ def initializeSolution(X,Y,nx,ny,gam,Lx,diaphragmLocation):
 
     return rho,u,v,e
 
-def marchSolution(X,Y,rho,u,v,e,gam,Lx,dx,dy,dt,nt,saveFile,pauseCount):
+def marchSolution(X,Y,rho,u,v,e,gam,Lx,dx,dy,dt,nt,saveFile,pauseCount,Cx=0.4,Cy=0.0):
+    """MacCormack march with artificial viscosity. Cx,Cy control AV strength."""
 
     locationOfRareFront = Lx*0.5
     locationOfShockFront = Lx*0.5
+    ny, nx = rho.shape
     for t in range(nt):
         p = rho*e*(gam-1)
         locationOfRareFront = locationOfRareFront - np.sqrt(gam*(p[0,0]/rho[0,0]))*dt
@@ -78,8 +82,6 @@ def marchSolution(X,Y,rho,u,v,e,gam,Lx,dx,dy,dt,nt,saveFile,pauseCount):
         e_pred = np.copy(e)
 
         # Artificial Viscosity
-        Cx = 0.4
-        Cy = 0.0
         pressure_term_y = np.divide(abs(p[2:,1:-1]-2*p[1:-1,1:-1]+p[0:-2,1:-1]),(p[2:,1:-1]+2*p[1:-1,1:-1]+p[0:-2,1:-1]))
         pressure_term_x = np.divide(abs(p[1:-1,2:]-2*p[1:-1,1:-1]+p[1:-1,0:-2]),(p[1:-1,2:]+2*p[1:-1,1:-1]+p[1:-1,0:-2]))
         
@@ -170,6 +172,7 @@ def marchSolution(X,Y,rho,u,v,e,gam,Lx,dx,dy,dt,nt,saveFile,pauseCount):
                 padding = '0'
             else:
                 padding=''
+            import os
             fileName = 'images/sod/Sod_Shock_Tube_'+padding+str(t)
             fig, ax = plt.subplots()
             cs = ax.contourf(X[1:-1,1:-1], Y[1:-1,1:-1], p[1:-1,1:-1],np.linspace(0.1,1,91),cmap='RdYlGn_r', extend='both')
@@ -181,6 +184,7 @@ def marchSolution(X,Y,rho,u,v,e,gam,Lx,dx,dy,dt,nt,saveFile,pauseCount):
             ax.set_aspect('equal', 'box')
 
             if saveFile == 1:
+                os.makedirs(os.path.dirname(fileName), exist_ok=True)
                 plt.savefig(fileName,dpi=200)
             if t < nt-1:
                 plt.close(fig)
