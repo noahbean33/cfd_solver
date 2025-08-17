@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.patches import Rectangle
+import os
 
 # Geometric params
 def initializeGrid(Lx,Ly,nx,ny):
@@ -12,7 +13,7 @@ def initializeGrid(Lx,Ly,nx,ny):
     X, Y = np.meshgrid(np.linspace(0,Lx,nx), np.linspace(0,Ly,ny))
     return X,Y,dx,dy
 
-def initializeSolution(X,Y,nx,ny,gam,vortex_gamma):
+def initializeSolution(X,Y,nx,ny,gam,vortex_gamma,Lx,Ly):
     # Function to initialize the shock
 
     M_inf = 1.2 #Hardwired to correspond to Zhang et al
@@ -49,7 +50,7 @@ def initializeSolution(X,Y,nx,ny,gam,vortex_gamma):
 
     return rho,u,v,e
 
-def initializeVortex(X,Y,nx,ny,gam,vortex_gamma,rho,u,v,e):
+def initializeVortex(X,Y,nx,ny,gam,vortex_gamma,rho,u,v,e,Lx,Ly):
     # Function to initialize the isentropic vortex perturbation into an already-converged shock solution
 
     shockLocationIdx = int((nx-1)/4)
@@ -73,7 +74,7 @@ def initializeVortex(X,Y,nx,ny,gam,vortex_gamma,rho,u,v,e):
 
     return rho,u,v,e
 
-def marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,plotOption,saveFile,pauseCount):
+def marchSolution(X,Y,rho,u,v,e,mean_pressure,gam,dx,dy,dt,nt,plotOption,saveFile,pauseCount,Cx=0.3,Cy=0.3):
 
     midX_index = int(np.round(X.shape[1]/2))
 
@@ -81,6 +82,7 @@ def marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,plotOption,saveFile,pauseC
 
         p = rho*e*(gam-1)
         
+        ny, nx = rho.shape
         drho_dx = np.zeros([ny,nx])
         du_dx = np.zeros([ny,nx])
         dv_dx = np.zeros([ny,nx])
@@ -117,8 +119,6 @@ def marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,plotOption,saveFile,pauseC
         e_pred = np.copy(e)
 
         # Artificial Viscosity
-        Cx = 0.3
-        Cy = 0.3
         pressure_term_y = np.divide(abs(p[2:,1:-1]-2*p[1:-1,1:-1]+p[0:-2,1:-1]),(p[2:,1:-1]+2*p[1:-1,1:-1]+p[0:-2,1:-1]))
         pressure_term_x = np.divide(abs(p[1:-1,2:]-2*p[1:-1,1:-1]+p[1:-1,0:-2]),(p[1:-1,2:]+2*p[1:-1,1:-1]+p[1:-1,0:-2]))
 
@@ -220,7 +220,7 @@ def marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,plotOption,saveFile,pauseC
                 fileName = 'images/shockVortex/Shock_Vortex_'+padding+str(t)
                 fig, ax = plt.subplots()
                 
-                cs5 = ax.contourf(X[1:-1,1:-1], Y[1:-1,1:-1], p[1:-1,1:-1],np.linspace(meanP[1,midX_index]-0.001,meanP[1,midX_index]+0.001,400),cmap='jet',extend='both')
+                cs5 = ax.contourf(X[1:-1,1:-1], Y[1:-1,1:-1], p[1:-1,1:-1],np.linspace(mean_pressure[1,midX_index]-0.001,mean_pressure[1,midX_index]+0.001,400),cmap='jet',extend='both')
                 cb = fig.colorbar(cs5, ax=ax, shrink=0.9)
                 cb.set_label('Non-dimensional Pressure')
                 
@@ -229,6 +229,7 @@ def marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,plotOption,saveFile,pauseC
                 plt.suptitle("Shock Vortex Interaction",fontsize=20)
 
                 if saveFile == 1:
+                    os.makedirs(os.path.dirname(fileName), exist_ok=True)
                     plt.savefig(fileName,dpi=200)
                 if t < nt-1:
                     plt.close(fig)
@@ -254,17 +255,17 @@ if __name__ == '__main__':
 
     # Initialize grid and solution
     [X,Y,dx,dy] = initializeGrid(Lx,Ly,nx,ny)
-    [rho,u,v,e] = initializeSolution(X,Y,nx,ny,gam,0)
+    [rho,u,v,e] = initializeSolution(X,Y,nx,ny,gam,0,Lx,Ly)
     p = rho*e*(gam-1)
 
     # Converge the shock-only solution
-    [rho,u,v,e,meanP] = marchSolution(X,Y,rho,u,v,e,p,gam,dx,dy,dt,nt,1,0,nt)
+    [rho,u,v,e,mean_pressure] = marchSolution(X,Y,rho,u,v,e,p,gam,dx,dy,dt,nt,1,0,nt)
     print('Shock solution initialized')
 
     # Introduce the isentropic vortex perturbation
-    [rho,u,v,e] = initializeVortex(X,Y,nx,ny,gam,vortex_gamma,rho,u,v,e)
+    [rho,u,v,e] = initializeVortex(X,Y,nx,ny,gam,vortex_gamma,rho,u,v,e,Lx,Ly)
     print('Vortex initialized')
 
     # Run the actual shock-vortex-interaction problem
-    [rho,u,v,e,p] = marchSolution(X,Y,rho,u,v,e,meanP,gam,dx,dy,dt,nt,1,saveFile,pauseCount)
+    [rho,u,v,e,p] = marchSolution(X,Y,rho,u,v,e,mean_pressure,gam,dx,dy,dt,nt,1,saveFile,pauseCount)
     plt.show()
