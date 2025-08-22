@@ -74,13 +74,6 @@ python -m shock_vortex_interaction.cli --nx 161 --ny 161 --Lx 40 --Ly 40 --nt 20
 
 Images are saved under `images/...` with directories created automatically.
  
-## Utilities
-- `tools/extract_pdf_texts.py`: Extract text from all PDFs under the repo root into `docs_txt/` (already run once). Requires `pdfminer.six`.
- 
-```bash
-python .\tools\extract_pdf_texts.py
-```
- 
 ## Testing and Notes
 - Run tests: `python -m pytest -q`
 - See `notes.md` for a detailed code quality assessment and a roadmap to further modularization, testing, and CI.
