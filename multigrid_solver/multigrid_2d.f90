@@ -13,13 +13,16 @@
 
 ! to run pure Gauss-Seidel w/o multigrid, specify 1 grid level and number of multigrid cycles
 !                                    equal to the number of Gauss-Seidel iterations desired.
-      MODULE multigrid_routines
+      MODULE multigrid2d_routines
+      IMPLICIT NONE
       CONTAINS
 !***************************************************************************************
       SUBROUTINE gauss_seidel(itermax,imin,imax,jmin,jmax,stride,h,l,x,b)
       IMPLICIT none
-      REAL :: x(:,:,:),b(:,:,:),h(:)
-      INTEGER :: stride(:),imin,imax,jmin,jmax,i,j,iter,l,itermax
+      REAL, INTENT(INOUT) :: x(:,:,:)
+      REAL, INTENT(IN)    :: b(:,:,:), h(:)
+      INTEGER, INTENT(IN) :: stride(:),imin,imax,jmin,jmax,l,itermax
+      INTEGER :: i,j,iter
 
       DO iter=1,itermax
       DO j=jmin,jmax,stride(l)
@@ -34,8 +37,10 @@
 !     compute error residuals and transfer down to coarser grids
       SUBROUTINE restriction(imin,imax,jmin,jmax,stride,h,l,x,b)
       IMPLICIT none
-      REAL :: x(:,:,:),b(:,:,:),h(:)
-      INTEGER :: stride(:),imin,imax,jmin,jmax,i,j,l
+      REAL, INTENT(IN)    :: x(:,:,:),h(:)
+      REAL, INTENT(INOUT) :: b(:,:,:)
+      INTEGER, INTENT(IN) :: stride(:),imin,imax,jmin,jmax,l
+      INTEGER :: i,j
  
 !     compute residuals
       DO i=imin,imax,stride(l)
@@ -51,8 +56,10 @@
 !     interpolate solutions from coarser to finer grids
       SUBROUTINE prolongation(imin,imax,jmin,jmax,stride,l,x)
       IMPLICIT none
-      REAL :: x(:,:,:), correction
-      INTEGER :: imin,imax,jmin,jmax,stride(:),l,i,j
+      REAL, INTENT(INOUT) :: x(:,:,:)
+      REAL :: correction
+      INTEGER, INTENT(IN) :: imin,imax,jmin,jmax,stride(:),l
+      INTEGER :: i,j
 
 !print*,l,stride,imin,imax,jmin,jmax
       ! 4 ave (circles on grid sketch)
@@ -95,15 +102,15 @@
       RETURN
       END SUBROUTINE
 !***************************************************************************************
-      END MODULE multigrid_routines
+      END MODULE multigrid2d_routines
 
 !***************************************************************************************     
       PROGRAM multigrid_2d
-      USE multigrid_routines
+      USE multigrid2d_routines
       IMPLICIT NONE
       REAL,ALLOCATABLE :: x(:,:,:),b(:,:,:),h(:)
       INTEGER,ALLOCATABLE :: stride(:)
-      INTEGER :: i,j,imin,imax,jmin,jmax,l,lmax,numouter,outer,max,itermax=1
+      INTEGER :: i,j,imin,imax,jmin,jmax,l,lmax,numouter,outer,max,itermax=1,n_interior
       REAL :: rms,residual
       
       WRITE(*,*)'Enter the number of grid points in one direction'
@@ -159,7 +166,8 @@
                                                   4.*x(i,j,1))/h(1)**2
       rms=rms+residual**2
       END DO;  END DO
-      rms=SQRT(rms)
+      n_interior=(max-2)*(max-2)
+      rms=SQRT(rms/REAL(n_interior))
       WRITE(*,100)outer,rms,x((max+1)/2,(max+1)/2,1)
       IF(rms .LE. 1.e-5)EXIT      !exit loop if converged solution
 
