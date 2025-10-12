@@ -12,16 +12,13 @@
 ! compile double precision with gfortran -fdefault-real-8 -O2 multigrid_1d.f90
 ! to run pure Gauss-Seidel w/o multigrid, specify 1 grid level and number of multigrid cycles
 !                                    equal to the number of Gauss-Seidel iterations desired.
-      MODULE multigrid1d_routines
-      IMPLICIT NONE
+      MODULE multigrid_routines
       CONTAINS
 !**********************************************************************
       SUBROUTINE gauss_seidel(itermax,imin,imax,stride,h,l,x,b)
-      IMPLICIT NONE
-      REAL, INTENT(INOUT) :: x(:,:)
-      REAL, INTENT(IN)    :: b(:,:), h(:)
-      INTEGER, INTENT(IN) :: stride(:),imin,imax,l,itermax
-      INTEGER :: i,iter
+      IMPLICIT none
+      REAL :: x(:,:),b(:,:), h(:)
+      INTEGER :: stride(:),imin,imax,i,l,itermax,iter
 
       DO iter=1,itermax
       DO i=imin,imax,stride(l)
@@ -34,10 +31,8 @@
 !     compute error residuals and transfer down to coarser grids
       SUBROUTINE restriction(imin,imax,stride,h,l,x,b)
       IMPLICIT none
-      REAL, INTENT(IN)    :: x(:,:),h(:)
-      REAL, INTENT(INOUT) :: b(:,:)
-      INTEGER, INTENT(IN) :: stride(:),imin,imax,l
-      INTEGER :: i
+      REAL :: x(:,:),b(:,:),h(:)
+      INTEGER :: stride(:),imin,imax,i,l
 
 !     note b(i,l+1) is the residual vector r for solving Ae=r on next coarse level
 !     direct transfer on down to coarser grid; no interpolation necessary
@@ -52,10 +47,8 @@
 !     interpolate errors up from coarser grids to finer grids
       SUBROUTINE prolongation(imin,imax,stride,l,x)
       IMPLICIT none
-      REAL, INTENT(INOUT) :: x(:,:)
-      REAL :: correction
-      INTEGER, INTENT(IN) :: imin,imax,stride(:),l
-      INTEGER :: i
+      REAL :: x(:,:),correction
+      INTEGER :: imin,imax,stride(:),l,i
 
 !     direct transfer of error up across grids
       DO i=imin+stride(l),imax-stride(l),2*stride(l)
@@ -71,16 +64,16 @@
       END SUBROUTINE
 
 !***************************************************************************************
-      END MODULE multigrid1d_routines
+      END MODULE multigrid_routines
 
 !***************************************************************************************     
       PROGRAM multigrid
-      USE multigrid1d_routines
+      USE multigrid_routines
       IMPLICIT none
       REAL, PARAMETER :: pi=4.0*ATAN(1.0)
       REAL, ALLOCATABLE :: x(:,:),b(:,:),h(:)
       INTEGER, ALLOCATABLE :: stride(:)
-      INTEGER :: imin,imax,l,lmax,numouter,outer,i,max,itermax=1,n_interior
+      INTEGER :: imin,imax,l,lmax,numouter,outer,i,max,itermax=1
       INTEGER (KIND=8) :: start,end,countrate
       REAL :: walltime,ymax,residual,rms
 
@@ -156,8 +149,7 @@
          residual=b(i,1) - ( x(i+1,1)+x(i-1,1) - 2.*x(i,1) )/h(1)**2
          rms=rms+residual**2
       END DO
-      n_interior=max-2
-      rms=SQRT(rms/REAL(n_interior))
+      rms=SQRT(rms)
       WRITE(*,100)outer,rms,MAXVAL(ABS(x(:,1)))
       WRITE(11,*)outer,rms              !write RMS error
       WRITE(12,*)outer,MAXVAL(x(:,1))   !write maximum error if solution is zero
